@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicaciones Agrícolas y Alimentarias | Biotecnología Microbiana</title>
+
+    <!-- Iconos FontAwesome y Tipografía Inter -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variables y Estilos Base */
+        :root {
+            --primary-900: #14532d;
+            --primary-800: #166534;
+            --primary-700: #15803d;
+            --primary-600: #16a34a;
+            --primary-500: #22c55e;
+            --primary-100: #dcfce7;
+            --primary-50:  #f0fdf4;
+            
+            --earth-700: #b45309;
+            --earth-600: #d97706;
+            --earth-100: #fef3c7;
+            --earth-50:  #fffbeb;
+
+            --bg-slate: #f8fafc;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-slate);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Utilidades Generales */
+        .max-width-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 5rem 1.5rem;
+        }
+
+        .text-center { text-align: center; }
+        .hidden { display: none !important; }
+
+        /* Botones Base */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-600);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-700);
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary-900);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .btn-white:hover {
+            background-color: #f1f5f9;
+        }
+
+        .btn-amber {
+            background-color: var(--earth-600);
+            color: white;
+        }
+        .btn-amber:hover {
+            background-color: var(--earth-700);
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            background-color: var(--primary-700);
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .logo-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            display: block;
+        }
+        .logo-title span { color: var(--primary-600); }
+        .logo-sub { font-size: 0.75rem; color: var(--text-muted); display: block; font-weight: 500; }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        nav a:hover { color: var(--primary-600); }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+        }
+
+        /* HERO INICIO */
+        .hero {
+            background: linear-gradient(135deg, rgba(20, 83, 45, 0.95) 0%, rgba(21, 128, 61, 0.88) 50%, rgba(120, 53, 15, 0.82) 100%),
+                        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: white;
+            padding: 6rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background-color: rgba(34, 197, 94, 0.25);
+            border: 1px solid rgba(134, 239, 172, 0.4);
+            color: var(--primary-100);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #f1f5f9;
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* SECCIÓN APLICACIONES (GRID) */
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-700);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+        .divider {
+            width: 80px;
+            height: 5px;
+            background-color: var(--primary-600);
+            margin: 1rem auto;
+            border-radius: 9999px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-icon.green { background-color: var(--primary-50); color: var(--primary-700); }
+        .card-icon.amber { background-color: var(--earth-50); color: var(--earth-700); }
+
+        .card-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .card-category.green { color: var(--primary-600); }
+        .card-category.amber { color: var(--earth-700); }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0.25rem 0 0.75rem;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .card-footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card-footer.green { color: var(--primary-700); }
+        .card-footer.amber { color: var(--earth-700); }
+
+        /* INFOGRAFÍA */
+        .infografia-section {
+            background-color: var(--primary-900);
+            color: white;
+        }
+        .infografia-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .infografia-grid { grid-template-columns: 1fr; }
+        }
+
+        .info-step-btn {
+            width: 100%;
+            text-align: left;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            border: 1px solid var(--primary-800);
+            background-color: rgba(22, 101, 52, 0.4);
+            color: white;
+            transition: all 0.2s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .info-step-btn.active {
+            background-color: var(--primary-800);
+            border-left: 5px solid var(--primary-500);
+        }
+
+        .step-num {
+            background-color: var(--primary-600);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .info-card-body {
+            background-color: rgba(22, 101, 52, 0.9);
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            border: 1px solid var(--primary-800);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .info-card-body h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .info-highlight {
+            background-color: rgba(20, 83, 45, 0.7);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--primary-800);
+            font-size: 0.9rem;
+            color: var(--primary-100);
+            margin-top: 1.5rem;
+        }
+
+        /* MINI JUEGO */
+        .game-card {
+            background-color: white;
+            border-radius: 1.25rem;
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .game-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .game-badge {
+            background-color: var(--earth-100);
+            color: var(--earth-700);
+            padding: 0.4rem 1rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .game-question-box {
+            background-color: var(--primary-50);
+            border: 1px solid var(--primary-100);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .game-question-box h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+        }
+
+        .game-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .game-opt-btn {
+            padding: 1.25rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            background-color: white;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .game-opt-btn:hover {
+            background-color: var(--primary-50);
+            border-color: var(--primary-500);
+        }
+
+        .game-opt-btn.correct {
+            background-color: var(--primary-100);
+            border-color: var(--primary-600);
+            color: var(--primary-900);
+            font-weight: 700;
+        }
+
+        .game-opt-btn.wrong {
+            background-color: #ffe4e6;
+            border-color: #f43f5e;
+            color: #881337;
+        }
+
+        .feedback-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* EVALUACIÓN */
+        .quiz-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-question {
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .quiz-question label.q-title {
+            display: block;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .radio-option:hover {
+            background-color: #f8fafc;
+        }
+
+        /* FOOTER Y REFERENCIAS */
+        .sources-section {
+            background-color: white;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer {
+            background-color: #020617;
+            color: #94a3b8;
+            padding: 3rem 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="max-width-container">
+        <div class="header-content">
+            <div class="logo-box">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <div>
+                    <span class="logo-title">BioAgro<span>Micro</span></span>
+                    <span class="logo-sub">Aplicaciones Agrícolas y Alimentarias</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#contenido">Aplicaciones</a>
+                <a href="#infografia">Proceso</a>
+                <a href="#minijuego">Mini-Juego</a>
+                <a href="#evaluacion">Evaluación</a>
+            </nav>
+
+            <a href="#evaluacion" class="btn btn-primary">
+                <i class="fa-solid fa-pen-to-square" style="margin-right: 0.5rem;"></i>Evaluación
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- INICIO -->
+<section id="inicio" class="hero">
+    <div class="max-width-container">
+        <span class="hero-badge">
+            <i class="fa-solid fa-microscope" style="margin-right: 0.5rem;"></i>
+            Biotecnología Microbiana
+        </span>
+
+        <h1>Aplicaciones Agrícolas y Alimentarias</h1>
+
+        <p>
+            Conoce cómo bacterias, hongos y levaduras se utilizan para mejorar los cultivos,
+            controlar plagas, producir alimentos y conservarlos de forma segura y sostenible.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#contenido" class="btn btn-white">
+                <i class="fa-solid fa-book-open" style="margin-right: 0.5rem;"></i> Explorar Aplicaciones
+            </a>
+
+            <a href="#minijuego" class="btn btn-amber">
+                <i class="fa-solid fa-gamepad" style="margin-right: 0.5rem;"></i> Jugar y Aprender
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTENIDO -->
+<section id="contenido" class="section-padding max-width-container">
+    <div class="section-header">
+        <span class="section-tag">Aplicaciones de la Biotecnología Microbiana</span>
+        <h2 class="section-title">Del cultivo a la mesa</h2>
+        <div class="divider"></div>
+        <p style="color: var(--text-muted);">
+            Los microorganismos tienen aplicaciones importantes tanto en la agricultura como
+            en la producción y conservación de alimentos.
+        </p>
+    </div>
+
+    <div class="grid-cards">
+        <!-- CARD 1 -->
+        <div class="card">
+            <div>
+                <div class="card-icon green"><i class="fa-solid fa-seedling"></i></div>
+                <span class="card-category green">Agrícola</span>
+                <h3>Biofertilizantes Microbianos</h3>
+                <p>Microorganismos como <em>Rhizobium</em> y hongos micorrízicos ayudan a las plantas a obtener nitrógeno y fósforo, favoreciendo el crecimiento de cultivos.</p>
+            </div>
+            <div class="card-footer green">
+                <i class="fa-solid fa-circle-check"></i> Favorecen el aprovechamiento de nutrientes
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+            <div>
+                <div class="card-icon amber"><i class="fa-solid fa-shield-halved"></i></div>
+                <span class="card-category amber">Agrícola</span>
+                <h3>Biopesticidas y Biocontrol</h3>
+                <p>Microorganismos como <em>Bacillus thuringiensis</em> se utilizan para controlar plagas de insectos de forma biológica y sostenible.</p>
+            </div>
+            <div class="card-footer amber">
+                <i class="fa-solid fa-circle-check"></i> Control biológico de plagas
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+            <div>
+                <div class="card-icon green"><i class="fa-solid fa-wheat-awn"></i></div>
+                <span class="card-category green">Agrícola</span>
+                <h3>Ensilaje e Inoculantes</h3>
+                <p>Bacterias ácido-lácticas se usan como inoculantes para favorecer la fermentación del ensilaje y conservar el alimento del ganado.</p>
+            </div>
+            <div class="card-footer green">
+                <i class="fa-solid fa-circle-check"></i> Conservación de alimento animal
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card">
+            <div>
+                <div class="card-icon amber"><i class="fa-solid fa-bottle-droplet"></i></div>
+                <span class="card-category amber">Alimentaria</span>
+                <h3>Fermentación de Alimentos</h3>
+                <p>Bacterias y levaduras elaboran yogur, queso, pan y otros productos fermentados, modificando sus sabores y conservación.</p>
+            </div>
+            <div class="card-footer amber">
+                <i class="fa-solid fa-circle-check"></i> Producción y conservación
+            </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="card">
+            <div>
+                <div class="card-icon green"><i class="fa-solid fa-flask"></i></div>
+                <span class="card-category green">Alimentaria</span>
+                <h3>Enzimas Alimentarias</h3>
+                <p>Microorganismos producen enzimas clave para mejorar procesos de transformación e ingredientes de la industria alimentaria.</p>
+            </div>
+            <div class="card-footer green">
+                <i class="fa-solid fa-circle-check"></i> Procesos más eficientes
+            </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="card">
+            <div>
+                <div class="card-icon amber"><i class="fa-solid fa-box-open"></i></div>
+                <span class="card-category amber">Alimentaria</span>
+                <h3>Biopreservación y Probióticos</h3>
+                <p>Microorganismos útiles previenen la alteración de alimentos y aportan bacterias probióticas para la salud del consumidor.</p>
+            </div>
+            <div class="card-footer amber">
+                <i class="fa-solid fa-circle-check"></i> Alimentos funcionales
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INFOGRAFÍA -->
+<section id="infografia" class="section-padding infografia-section">
+    <div class="max-width-container">
+        <div class="section-header">
+            <span class="section-tag" style="color: var(--primary-100);">Infografía Interactiva</span>
+            <h2 class="section-title" style="color: white;">Del microorganismo a la aplicación</h2>
+            <p style="color: var(--primary-100); margin-top: 1rem;">Haz clic en cada etapa para conocer el proceso.</p>
+        </div>
+
+        <div class="infografia-grid">
+            <div>
+                <button onclick="showInfo(1)" id="btn-step-1" class="info-step-btn active">
+                    <div class="step-num">1</div>
+                    <div>
+                        <strong style="display:block;">Selección del microorganismo</strong>
+                        <span style="font-size: 0.75rem; opacity:0.8;">Identificación de cepas útiles.</span>
+                    </div>
+                </button>
+
+                <button onclick="showInfo(2)" id="btn-step-2" class="info-step-btn">
+                    <div class="step-num">2</div>
+                    <div>
+                        <strong style="display:block;">Producción y cultivo</strong>
+                        <span style="font-size: 0.75rem; opacity:0.8;">Cultivo bajo condiciones controladas.</span>
+                    </div>
+                </button>
+
+                <button onclick="showInfo(3)" id="btn-step-3" class="info-step-btn">
+                    <div class="step-num">3</div>
+                    <div>
+                        <strong style="display:block;">Aplicación agrícola</strong>
+                        <span style="font-size: 0.75rem; opacity:0.8;">Uso en suelos o control biológico.</span>
+                    </div>
+                </button>
+
+                <button onclick="showInfo(4)" id="btn-step-4" class="info-step-btn">
+                    <div class="step-num">4</div>
+                    <div>
+                        <strong style="display:block;">Aplicación alimentaria</strong>
+                        <span style="font-size: 0.75rem; opacity:0.8;">Fermentación y conservación.</span>
+                    </div>
+                </button>
+            </div>
+
+            <div class="info-card-body">
+                <div id="info-content-1">
+                    <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color: var(--primary-100);">Etapa 01</span>
+                    <h3>Selección del microorganismo</h3>
+                    <p>Se seleccionan microorganismos que presenten características útiles. Por ejemplo, <em>Rhizobium</em> puede establecer una relación simbiótica con leguminosas y fijar nitrógeno biológico.</p>
+                    <div class="info-highlight">
+                        <i class="fa-solid fa-lightbulb" style="color: #fbbf24; margin-right:0.5rem;"></i>
+                        La selección garantiza la inocuidad y alta estabilidad del microorganismo.
+                    </div>
+                </div>
+
+                <div id="info-content-2" class="hidden">
+                    <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color: var(--primary-100);">Etapa 02</span>
+                    <h3>Producción y cultivo controlado</h3>
+                    <p>Los microorganismos se multiplican en biorreactores controlando temperatura, pH y oxígeno para obtener concentraciones óptimas de biomasa.</p>
+                    <div class="info-highlight">
+                        <i class="fa-solid fa-industry" style="margin-right:0.5rem;"></i>
+                        Asegura la pureza y efectividad industrial del cultivo microbiano.
+                    </div>
+                </div>
+
+                <div id="info-content-3" class="hidden">
+                    <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color: var(--primary-100);">Etapa 03</span>
+                    <h3>Aplicaciones agrícolas</h3>
+                    <p>Se formulan inoculantes o biopesticidas que se aplican al suelo, semillas o follaje para potenciar la nutrición del cultivo o combatir plagas.</p>
+                    <div class="info-highlight">
+                        <i class="fa-solid fa-seedling" style="margin-right:0.5rem;"></i>
+                        Fomenta prácticas agrícolas sostenibles al reducir químicos.
+                    </div>
+                </div>
+
+                <div id="info-content-4" class="hidden">
+                    <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color: var(--primary-100);">Etapa 04</span>
+                    <h3>Aplicaciones alimentarias</h3>
+                    <p>Levaduras y bacterias lácticas se añaden a matrices alimentarias para realizar procesos de fermentación, aportando sabor, textura y vida útil.</p>
+                    <div class="info-highlight">
+                        <i class="fa-solid fa-utensils" style="margin-right:0.5rem;"></i>
+                        Proporciona alimentos seguros y con propiedades probióticas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MINI JUEGO -->
+<section id="minijuego" class="section-padding max-width-container">
+    <div class="section-header">
+        <span class="section-tag" style="color: var(--earth-700);">Dinámica Lúdica</span>
+        <h2 class="section-title">Mini-Juego: El Experto Microbiano</h2>
+        <p style="color: var(--text-muted); margin-top:0.5rem;">Relaciona cada microorganismo con su aplicación correspondiente.</p>
+    </div>
+
+    <div class="game-card">
+        <div class="game-status">
+            <div class="game-badge">Reto <span id="game-round">1</span> de 4</div>
+            <div style="font-weight:700;">Puntuación: <span id="game-score" style="color: var(--primary-600);">0</span> pts</div>
+            <button onclick="resetGame()" class="btn" style="background:#f1f5f9; font-size:0.8rem;"><i class="fa-solid fa-rotate-right" style="margin-right:0.4rem;"></i> Reiniciar</button>
+        </div>
+
+        <div id="game-container">
+            <div class="game-question-box">
+                <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color: var(--primary-700);">Microorganismo</span>
+                <h3 id="game-question">Rhizobium leguminosarum</h3>
+            </div>
+
+            <div class="game-options-grid" id="game-options"></div>
+        </div>
+
+        <div id="game-feedback" class="feedback-box hidden"></div>
+
+        <div id="game-complete" class="hidden text-center" style="padding: 2rem 0;">
+            <div style="font-size: 3rem; color: var(--primary-600); margin-bottom: 1rem;">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">¡Felicitaciones!</h3>
+            <p id="game-final-msg" style="color: var(--text-muted); margin-bottom: 1.5rem;"></p>
+            <button onclick="resetGame()" class="btn btn-primary">Jugar de Nuevo</button>
+        </div>
+    </div>
+</section>
+
+<!-- EVALUACIÓN -->
+<section id="evaluacion" class="section-padding" style="background-color: #f1f5f9; border-top: 1px solid var(--border-color);">
+    <div class="max-width-container">
+        <div class="section-header">
+            <span class="section-tag">Evaluación Digital</span>
+            <h2 class="section-title">Cuestionario de Conocimientos</h2>
+        </div>
+
+        <div class="quiz-card">
+            <form id="quiz-form" onsubmit="evaluateQuiz(event)">
+                <!-- Q1 -->
+                <div class="quiz-question">
+                    <label class="q-title">1. ¿Cuál es una aplicación agrícola de <em>Rhizobium</em>?</label>
+                    <label class="radio-option"><input type="radio" name="q1" value="a"> A) Elaborar pan.</label>
+                    <label class="radio-option"><input type="radio" name="q1" value="b"> B) Fijar nitrógeno en asociación con leguminosas.</label>
+                    <label class="radio-option"><input type="radio" name="q1" value="c"> C) Madurar quesos.</label>
+                </div>
+
+                <!-- Q2 -->
+                <div class="quiz-question">
+                    <label class="q-title">2. ¿Qué microorganismo se utiliza ampliamente como biopesticida?</label>
+                    <label class="radio-option"><input type="radio" name="q2" value="a"> A) <em>Escherichia coli</em></label>
+                    <label class="radio-option"><input type="radio" name="q2" value="b"> B) <em>Bacillus thuringiensis</em></label>
+                    <label class="radio-option"><input type="radio" name="q2" value="c"> C) <em>Rhizobium</em></label>
+                </div>
+
+                <!-- Q3 -->
+                <div class="quiz-question">
+                    <label class="q-title">3. ¿Qué proceso microbiano participa en la elaboración de yogur?</label>
+                    <label class="radio-option"><input type="radio" name="q3" value="a"> A) Fermentación láctica.</label>
+                    <label class="radio-option"><input type="radio" name="q3" value="b"> B) Fotosíntesis.</label>
+                    <label class="radio-option"><input type="radio" name="q3" value="c"> C) Germinación.</label>
+                </div>
+
+                <!-- Q4 -->
+                <div class="quiz-question">
+                    <label class="q-title">4. ¿Qué beneficio aportan los hongos micorrízicos arbusculares?</label>
+                    <label class="radio-option"><input type="radio" name="q4" value="a"> A) Sustituir la fotosíntesis.</label>
+                    <label class="radio-option"><input type="radio" name="q4" value="b"> B) Favorecer la absorción de agua y fósforo.</label>
+                    <label class="radio-option"><input type="radio" name="q4" value="c"> C) Eliminar las raíces de las plantas.</label>
+                </div>
+
+                <!-- Q5 -->
+                <div class="quiz-question" style="border:none;">
+                    <label class="q-title">5. ¿Cuál es una aplicación alimentaria de la biotecnología microbiana?</label>
+                    <label class="radio-option"><input type="radio" name="q5" value="a"> A) Fermentación para producir alimentos como yogur y pan.</label>
+                    <label class="radio-option"><input type="radio" name="q5" value="b"> B) Fijación de nitrógeno en las raíces.</label>
+                    <label class="radio-option"><input type="radio" name="q5" value="c"> C) Control de insectos en cultivos.</label>
+                </div>
+
+                <div style="text-align:center; margin-top:2rem;">
+                    <button type="submit" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size:1rem;">
+                        <i class="fa-solid fa-square-check" style="margin-right:0.5rem;"></i> Enviar Evaluación
+                    </button>
+                </div>
+            </form>
+
+            <div id="quiz-result" class="hidden" style="margin-top:2rem; padding:1.5rem; border-radius:1rem; text-align:center;">
+                <div id="result-icon" style="font-size:2.5rem; margin-bottom:0.5rem;"></div>
+                <h3 id="result-title" style="font-size:1.5rem; margin-bottom:0.5rem;"></h3>
+                <p id="result-desc" style="color:var(--text-muted); margin-bottom:1.5rem;"></p>
+                <button onclick="resetQuiz()" class="btn" style="background:#e2e8f0;">Volver a Intentar</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTEGRANTES DEL EQUIPO -->
+<section class="section-padding" style="background-color:#f0fdf4; border-top:1px solid var(--border-color);">
+    <div class="max-width-container text-center" style="max-width:900px;">
+        <span class="section-tag">Nuestro equipo</span>
+        <h2 class="section-title">Integrantes del grupo</h2>
+        <div class="divider"></div>
+        <ul style="list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-top:2rem;">
+            <li style="background:white; padding:1rem; border:1px solid var(--border-color); border-radius:0.75rem; font-weight:600;">Diego Orlando Peréz Orellana</li>
+            <li style="background:white; padding:1rem; border:1px solid var(--border-color); border-radius:0.75rem; font-weight:600;">Gerardo Gamaliel Flores Quijano</li>
+            <li style="background:white; padding:1rem; border:1px solid var(--border-color); border-radius:0.75rem; font-weight:600;">César Rafael Galán Avalos</li>
+            <li style="background:white; padding:1rem; border:1px solid var(--border-color); border-radius:0.75rem; font-weight:600;">Carlos Daniel Huezo Flores</li>
+        </ul>
+    </div>
+</section>
+
+<!-- FUENTES -->
+<section class="sources-section section-padding">
+    <div class="max-width-container" style="max-width:800px;">
+        <div class="text-center" style="margin-bottom:2rem;">
+            <span class="section-tag">Referencias</span>
+            <h2>Fuentes de Consulta</h2>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div style="padding:1rem; background:#f8fafc; border-radius:0.75rem; border:1px solid var(--border-color); font-size:0.9rem;">
+                <strong>FAO.</strong> Organización de las Naciones Unidas para la Alimentación y la Agricultura. Información sobre agricultura sostenible y microbiología alimentaria.
+            </div>
+            <div style="padding:1rem; background:#f8fafc; border-radius:0.75rem; border:1px solid var(--border-color); font-size:0.9rem;">
+                <strong>Madigan et al.</strong> <em>Biología de los microorganismos</em>. Referencia clave para microbiología aplicada.
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="max-width-container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <div>
+            <strong style="color:white; font-size:1.1rem; block;">BioAgroMicro Platform</strong>
+            <span style="font-size:0.8rem;">Actividad Integradora - Biotecnología Microbiana</span>
+        </div>
+        <div style="font-size:0.8rem;">
+            Tema: Aplicaciones Agrícolas y Alimentarias
+        </div>
+    </div>
+</footer>
+
+<script>
+    // INFOGRAFÍA
+    function showInfo(step) {
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById('info-content-' + i).classList.add('hidden');
+            const btn = document.getElementById('btn-step-' + i);
+            btn.classList.remove('active');
+        }
+        document.getElementById('info-content-' + step).classList.remove('hidden');
+        document.getElementById('btn-step-' + step).classList.add('active');
+    }
+
+    // MINI-JUEGO
+    const gameData = [
+        {
+            question: "Rhizobium leguminosarum",
+            options: [
+                { text: "Fijación biológica de nitrógeno en leguminosas", correct: true },
+                { text: "Producción de yogur", correct: false },
+                { text: "Control de insectos mediante toxinas Cry", correct: false },
+                { text: "Producción de pan", correct: false }
+            ]
+        },
+        {
+            question: "Bacillus thuringiensis",
+            options: [
+                { text: "Fermentación láctica del yogur", correct: false },
+                { text: "Biopesticida para plagas de insectos", correct: true },
+                { text: "Fijación simbiótica de nitrógeno", correct: false },
+                { text: "Producción de pan", correct: false }
+            ]
+        },
+        {
+            question: "Saccharomyces cerevisiae",
+            options: [
+                { text: "Fijación de nitrógeno", correct: false },
+                { text: "Control biológico de insectos", correct: false },
+                { text: "Fermentación y panificación", correct: true },
+                { text: "Biofertilización de raíces", correct: false }
+            ]
+        },
+        {
+            question: "Hongos Micorrízicos Arbusculares",
+            options: [
+                { text: "Favorecen la absorción de agua y nutrientes", correct: true },
+                { text: "Producen pan mediante fermentación", correct: false },
+                { text: "Controlan directamente las plagas", correct: false },
+                { text: "Sustituyen la fotosíntesis", correct: false }
+            ]
+        }
+    ];
+
+    let currentRound = 0;
+    let gameScore = 0;
+
+    function loadGameQuestion() {
+        if (currentRound >= gameData.length) {
+            document.getElementById('game-container').classList.add('hidden');
+            document.getElementById('game-feedback').classList.add('hidden');
+            document.getElementById('game-complete').classList.remove('hidden');
+            document.getElementById('game-final-msg').innerText = `Has acertado ${gameScore} de ${gameData.length} preguntas.`;
+            return;
+        }
+
+        const data = gameData[currentRound];
+        document.getElementById('game-round').innerText = currentRound + 1;
+        document.getElementById('game-score').innerText = gameScore * 25;
+        document.getElementById('game-question').innerText = data.question;
+
+        const optionsContainer = document.getElementById('game-options');
+        optionsContainer.innerHTML = '';
+
+        const shuffledOptions = [...data.options].sort(() => Math.random() - 0.5);
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = "game-opt-btn";
+            btn.innerHTML = `<span>${opt.text}</span><i class="fa-solid fa-chevron-right" style="font-size:0.75rem;"></i>`;
+            btn.onclick = () => checkGameAnswer(opt.correct, btn);
+            optionsContainer.appendChild(btn);
+        });
+
+        document.getElementById('game-feedback').classList.add('hidden');
+    }
+
+    function checkGameAnswer(isCorrect, btnElement) {
+        const feedback = document.getElementById('game-feedback');
+        feedback.classList.remove('hidden');
+
+        const buttons = document.getElementById('game-options').getElementsByTagName('button');
+        for (let b of buttons) b.disabled = true;
+
+        if (isCorrect) {
+            gameScore++;
+            btnElement.classList.add('correct');
+            feedback.style.backgroundColor = 'var(--primary-100)';
+            feedback.style.color = 'var(--primary-900)';
+            feedback.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Correcto! Excelente respuesta.';
+        } else {
+            btnElement.classList.add('wrong');
+            feedback.style.backgroundColor = '#ffe4e6';
+            feedback.style.color = '#881337';
+            feedback.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Incorrecto. Revisa las características.';
+        }
+
+        setTimeout(() => {
+            currentRound++;
+            loadGameQuestion();
+        }, 1500);
+    }
+
+    function resetGame() {
+        currentRound = 0;
+        gameScore = 0;
+        document.getElementById('game-container').classList.remove('hidden');
+        document.getElementById('game-complete').classList.add('hidden');
+        loadGameQuestion();
+    }
+
+    // EVALUACIÓN
+    function evaluateQuiz(event) {
+        event.preventDefault();
+        const answers = { q1: 'b', q2: 'b', q3: 'a', q4: 'b', q5: 'a' };
+        let score = 0;
+
+        for (let key in answers) {
+            const radios = document.getElementsByName(key);
+            for (let r of radios) {
+                if (r.checked && r.value === answers[key]) score++;
+            }
+        }
+
+        const resultBox = document.getElementById('quiz-result');
+        const percentage = (score / 5) * 100;
+
+        resultBox.className = "";
+        if (percentage >= 60) {
+            resultBox.style.backgroundColor = "var(--primary-50)";
+            resultBox.style.border = "1px solid var(--primary-500)";
+            document.getElementById('result-icon').innerHTML = "";
+            document.getElementById('result-title').innerText = `¡Calificación: ${score * 2} / 10!`;
+            document.getElementById('result-desc').innerText = "Excelente trabajo demostrando tus conocimientos.";
+            }
+            else {
+            resultBox.style.backgroundColor = "#fff1f2";
+            resultBox.style.border = "1px solid #fda4af";
+            document.getElementById('result-icon').innerHTML = "";
+            document.getElementById('result-title').innerText = `Calificación: ${score * 2} / 10`;
+            document.getElementById('result-desc').innerText = "Te recomendamos revisar los temas nuevamente.";
+        }
+
+        resultBox.classList.remove('hidden');
+        resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        document.getElementById('quiz-form').reset();
+        document.getElementById('quiz-result').classList.add('hidden');
+    }
+
+    window.onload = loadGameQuestion;
+</script>
+
+</body>
+</html>
